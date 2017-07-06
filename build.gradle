@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'antlr'
+apply plugin: 'eclipse'
+
+project.sourceCompatibility = '1.8'
+project.archivesBaseName = 'shitty-template-engine'
+project.version = '0.0.0'
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  antlr group: 'org.antlr', name: 'antlr4', version: '4.7'
+}
+
+generateGrammarSource {
+    maxHeapSize = "512m"
+    arguments += ["-visitor", "-long-messages"]
+}
